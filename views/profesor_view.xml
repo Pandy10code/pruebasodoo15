@@ -1,0 +1,49 @@
+<odoo>
+  <data>
+    <!-- explicit tree view definition / vista de arbol -->
+
+    <record model="ir.ui.view" id="escuela_profesor_tree">
+      <field name="name">profesor tree</field>
+      <field name="model">escuela.profesor</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name"/>
+          <field name="cedula"/>
+          <field name="titulo"/>
+        </tree>
+      </field>
+    </record>
+    
+    <record model="ir.ui.view" id="escuela_profesor_form">
+      <field name="name">profesor form</field>
+      <field name="model">escuela.profesor</field>
+      <field name="arch" type="xml">
+        <form string="Ficha del profesor">
+          <sheet>
+            <h2> Datos del profesor</h2>
+            <group name="datos_personales" string="Datos personales">
+              <field name="nombre_completo"/>
+              <field name="name"/>
+              <field name="lastname"/>
+              <field name="edad"/>
+              <field name="cedula"/>
+              <field name="telefono"/>
+              <field name="titulo"/>
+              <field name="area"/>
+            </group>
+            
+          </sheet>
+        </form>
+      </field>
+    </record>
+
+
+    <!-- actions opening views on models accion para abrir vista-->
+
+    <record model="ir.actions.act_window" id="escuela_profesor_action_window">
+      <field name="name">Ficha profesor</field>
+      <field name="res_model">escuela.profesor</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+  </data>
+</odoo>

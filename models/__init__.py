@@ -1,3 +1,6 @@
 # -*- coding: utf-8 -*-
 
-from . import models
+from . import persona
+from . import estudiante
+from . import profesor
+from . import representante

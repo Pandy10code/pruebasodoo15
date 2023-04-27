@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <template id="report_lista_estudiantes_document">
+        <t t-call="web.external_layout">
+            <div class="page">
+                <div>
+                    <table class="table" width="100%">
+                        <thead>
+                            <tr>
+                                <th>
+                                    Campo
+                                </th>
+                                <th>
+                                    Dato
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    Nombre
+                                </td>
+                                <td>
+                                    <span t-field="doc.name"/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    Cédula
+                                </td>
+                                <td>
+                                    <span t-field="doc.cedula"/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    Representante
+                                </td>
+                                <td>
+                                    <span t-field="doc.representante"/>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </t>
+    </template>
+
+    <template id="report_lista_estudiantes_template">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="doc">
+                <t t-call="escuela.report_lista_estudiantes_document"/>
+            </t>
+        </t>
+    </template>
+
+</odoo>

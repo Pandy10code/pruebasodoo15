@@ -1,0 +1,29 @@
+<odoo>
+  <data>
+<!-- Top menu item / menu principal-->
+
+    <menuitem name="escuela" id="escuela.menu_root" sequence="10"/>
+
+    <!-- menu categories / submenus-->
+
+    <!-- Estudiante-->
+    <menuitem name="Estudiante" id="escuela.estudiante" parent="escuela.menu_root" sequence="11"/>
+    <!-- Profesor-->
+    <menuitem name="Profesor" id="escuela.profesor" parent="escuela.menu_root" sequence="12"/>
+    <!-- Representante-->
+    <menuitem name="Representante" id="escuela.representante" parent="escuela.menu_root" sequence="13"/>
+    
+    <!-- actions -->
+    <!-- Estudiante-->
+    <menuitem name="Ficha estudiante" id="escuela.ficha_estudiante" parent="escuela.estudiante"
+              action="escuela_estudiante_action_window"/>
+    <!-- Profesor-->
+    <menuitem name="Ficha profesor" id="escuela.ficha_profesor" parent="escuela.profesor"
+              action="escuela_profesor_action_window"/>
+    <!-- Representante-->
+    <menuitem name="Ficha representante" id="escuela.ficha_representante" parent="escuela.representante"
+              action="escuela_representante_action_window"/>
+
+
+    </data>
+</odoo>

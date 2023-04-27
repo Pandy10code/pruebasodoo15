@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="report_lista_estudiantes" model="ir.actions.report">
+        <field name="name">Lista de estudiantes</field>
+        <field name="model">escuela.estudiante</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">escuela.report_lista_estudiantes_template</field>
+        <field name="report_file">escuela.report_lista_estudiantes_template</field>
+        <field name="binding_model_id" ref="model_escuela_estudiante"/>
+        <field name="binding_type">report</field>
+    </record>
+
+    <record id="report_lista_representantes" model="ir.actions.report">
+        <field name="name">Lista de representantes</field>
+        <field name="model">escuela.representante</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">escuela.report_lista_representantes_template</field>
+        <field name="report_file">escuela.report_lista_representantes_template</field>
+        <field name="binding_model_id" ref="model_escuela_representante"/>
+        <field name="binding_type">report</field>
+    </record>
+
+</odoo>

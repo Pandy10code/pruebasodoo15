@@ -1,0 +1,59 @@
+<odoo>
+  <data>
+
+    <record model="ir.ui.view" id="escuela_estudiante_form">
+      <field name="name">escuela.estudiante.form</field>
+      <field name="model">escuela.estudiante</field>
+      <field name="arch" type="xml">
+        <form string="Contact">
+          <header>
+            <button string="Calcular edad" type="object" name="action_calcular_edad"/>
+          </header>
+          <sheet>
+            <field name="is_company" invisible="1"/>
+            <field name="type" invisible="1"/>
+            <field name="avatar_128" invisible="1"/>
+            <field name="image_1920" widget='image' class="oe_avatar" options='{"preview_image": "avatar_128"}'/>
+            <div class="oe_title">
+                <field name="company_type" options="{'horizontal': true}" widget="radio" groups="base.group_no_one"/>
+                <h1>
+                    <field id="company" name="name" default_focus="1" placeholder="e.g. Lumber Inc" attrs="{'required' : [('type', '=', 'contact'),('is_company','=', True)], 'invisible': [('is_company','=', False)]}"/>
+                    <field id="individual" name="name" default_focus="1" placeholder="e.g. Brandom Freeman" attrs="{'required' : [('type', '=', 'contact'),('is_company','=', False)], 'invisible': [('is_company','=', True)]}"/>
+                </h1>
+                <field name="parent_id"
+                    widget="res_partner_many2one"
+                    placeholder="Company Name..."
+                    domain="[('is_company', '=', True)]" context="{'default_is_company': True, 'show_vat': True}"
+                    attrs="{'invisible': [('is_company','=', True)]}"/>
+            </div>
+            <group>
+                <field name="function" placeholder="e.g. Sales Director" attrs="{'invisible': [('is_company','=', True)]}"/>
+                <field name="user_ids" invisible="1"/>
+                <field name="email" widget="email" context="{'gravatar_image': True}" required="context.get('force_email', False)" attrs="{'required': [('user_ids','!=', [])]}"/>
+                <field name="phone" widget="phone" options="{'enable_sms': false}"/>
+                <field name="mobile" widget="phone" options="{'enable_sms': false}"/>
+                <field name="date"/>
+                <field name="edad" readonly="1"/>
+            </group>
+            <group name="Estudiante">
+              <field name="calificacion" />
+              <field name="representante" />
+              <field name="representante_id" />
+            </group>
+          </sheet>
+      </form>
+      </field>
+    </record>
+
+
+
+    <!-- actions opening views on models accion para abrir vista-->
+
+    <record model="ir.actions.act_window" id="escuela_estudiante_action_window">
+      <field name="name">Ficha estudiante</field>
+      <field name="res_model">escuela.estudiante</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+   
+  </data>
+</odoo>
